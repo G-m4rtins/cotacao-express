@@ -1,50 +1,59 @@
 <div align="center">
   <img src="icons/icon128.png" alt="Dólar Hoje Logo" width="128"/>
 
-  # Dólar Hoje - Extensão para Chrome
+  # Dólar Hoje - Chrome Extension
   
-  **Uma forma minimalista, rápida e elegante de acompanhar a cotação do Dólar Comercial (USD -> BRL).**
+  **Uma extensão de navegador rápida e eficiente para monitoramento em tempo real da cotação do Dólar Comercial (USD -> BRL).**
 
-  [![Tema](https://img.shields.io/badge/Tema-Minimalista-f3f3f3?style=flat-square&labelColor=1f2937&color=f3f3f3)](https://github.com/)
-  [![Cores](https://img.shields.io/badge/Accent-Verde_Pastel-86efac?style=flat-square&labelColor=1f2937&color=86efac)](https://github.com/)
+  [![Chrome Extension](https://img.shields.io/badge/Chrome-Extension-4285F4?style=flat-square&logo=google-chrome&logoColor=white)](https://google.com/chrome)
+  [![JavaScript Vanilla](https://img.shields.io/badge/JavaScript-Vanilla-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+  [![AwesomeAPI](https://img.shields.io/badge/Data_Provider-AwesomeAPI-22C55E?style=flat-square)](#)
 </div>
 
 <br/>
 
-## 🎨 Design & Paleta de Cores
-Esta extensão foi construída com foco absoluto em uma experiência de usuário limpa (Clean UI), moderna e com poucas distrações visuais.
+## 📌 Sobre o Projeto
 
-| Cor | Hexadecimal | Uso no Layout |
-| :---: | :---: | :--- |
-| <img src="https://placehold.co/15x15/f3f3f3/f3f3f3.png" width="15" /> | `#f3f3f3` | **Background Principal** - Fundo claro que proporciona leveza visual. |
-| <img src="https://placehold.co/15x15/ffffff/ffffff.png" width="15" /> | `#ffffff` | **Superfícies** - Usado nas caixas flutuantes (cards) e botões para criar profundidade com sombras sutis (soft shadows) ao invés de bordas rígidas. |
-| <img src="https://placehold.co/15x15/1f2937/1f2937.png" width="15" /> | `#1f2937` | **Texto Principal** - Contraste ideal contra o fundo claro (reduz o cansaço ocular causado pelo preto puro). |
-| <img src="https://placehold.co/15x15/86efac/86efac.png" width="15" /> | `#86efac` | **Verde Pastel** - Nossa cor de destaque (accent). Traz energia aos *hovers* e botões de abas ativas. |
-| <img src="https://placehold.co/15x15/10b981/10b981.png" width="15" /> | `#10b981` | **Verde Forte (Esmeralda)** - Utilizado como a linha gráfica do histórico, contornos em alto contraste e na nossa logo (Símbolo $) completamente transparente. |
+O **Dólar Hoje** é uma extensão projetada para fornecer acesso imediato e ininterrupto à taxa de câmbio atualizada do Dólar Americano frente ao Real Brasileiro. Focado em performance e leveza, o projeto não possui dependências externas de bibliotecas gráficas ou frameworks pesados, utilizando apenas APIs nativas do navegador.
 
-## ✨ Funcionalidades
+## ✨ Principais Funcionalidades
 
-- **Cotação em Tempo Real**: Visualize os valores de compra, venda e a variação percentual de forma instantânea.
-- **Gráfico Interativo (Vanilla Canvas)**: Passe o mouse por cima do gráfico para acionar tooltips dinâmicos que exibem o preço histórico e a respectiva data, acompanhados de cursores rastreadores.
-- **Navegação Histórica Fluída**: Explore a variação do dólar ao longo dos últimos 7, 15, 30 ou 90 dias com botões modernos na tela principal.
-- **Atualização Contínua (Ao Vivo)**: Ciclo embutido que consulta o preço a cada 30 segundos, exibindo o status piscante de "Ao Vivo".
+- **Monitoramento em Tempo Real**: Exibe instantaneamente os valores de bid (compra), ask (venda) e variação percentual.
+- **Renderização Gráfica Nativa**: Gráfico histórico de preços renderizado inteiramente através da `Canvas API` (Vanilla JS), com suporte nativo a interatividade, tooltips e cursores rastreadores.
+- **Análise Histórica Flexível**: Permite ao usuário filtrar o histórico de cotações por períodos de 7, 15, 30 ou 90 dias com atualização imediata de estado na interface.
+- **Sincronização em Background**: Auto-refresh programado a cada 30 segundos, assegurando que o usuário sempre visualize os dados mais recentes do mercado com indicadores visuais responsivos.
 
-## 🚀 Como Instalar e Testar
+## 🛠 Arquitetura e Tecnologias
 
-1. Baixe os arquivos desta extensão.
-2. Abra seu Google Chrome e digite na URL: `chrome://extensions/`.
-3. No canto superior direito, ative o botão deslizante do **Modo do desenvolvedor**.
-4. No canto superior esquerdo, clique em **"Carregar sem compactação"**.
-5. Selecione a pasta da extensão (onde este `README.md` está localizado).
-6. Pronto! Para usá-la, basta clicar no ícone de "Quebra-cabeça" na barra de extensões do Chrome e "Pinar" a extensão `Dólar Hoje`.
+Este projeto foi desenhado sob uma arquitetura de Client-Side Extension, priorizando baixo consumo de recursos da máquina do usuário:
 
-## 🛠 Stack de Tecnologias
+- **HTML5 & CSS3**: Estruturação semântica e estilização isolada via Custom Properties (variáveis nativas).
+- **Vanilla JavaScript (ES6+)**: Lógica de renderização, manipulação de estado local (DOM) e listeners de evento otimizados.
+- **Canvas API**: Utilizada para gerar os gráficos dinâmicos sob medida, dispensando o overhead de bibliotecas de terceiros como Chart.js ou D3.
+- **Fetch API**: Integração assíncrona com o provedor de dados financeiros.
+- **Provedor de Dados**: Integração direta com a [AwesomeAPI](https://docs.awesomeapi.com.br/api-de-moedas) para consumo de cotações de moedas públicas.
 
-- **HTML5 & CSS3**: Utilizando propriedades nativas modernas e design sem dependências para maior rapidez (zero bloatware).
-- **JavaScript (Vanilla)**: A lógica, os eventos em tela e o desenho do gráfico interativo ocorrem usando a `Canvas API` nativa do browser.
-- **AwesomeAPI**: Os dados provêm do serviço público de conversão financeira [AwesomeAPI](https://docs.awesomeapi.com.br/).
+## 🚀 Como Instalar e Rodar Localmente
 
----
-<div align="center">
-  <sub>Construído com elegância, velocidade e minimalismo.</sub>
-</div>
+Siga as instruções abaixo para carregar a extensão em modo de desenvolvedor:
+
+1. Clone o repositório ou faça o download dos arquivos compactados:
+   ```bash
+   git clone https://github.com/seu-usuario/dolar-extension.git
+   ```
+2. Abra o Google Chrome e acesse o gerenciador de extensões na URL: `chrome://extensions/`.
+3. Ative o **Modo do desenvolvedor** através da chave no canto superior direito.
+4. Clique no botão **"Carregar sem compactação"** (Load unpacked) na barra superior à esquerda.
+5. Selecione o diretório raiz onde o repositório foi salvo no seu computador.
+6. A extensão será carregada imediatamente e o ícone do "Dólar Hoje" já estará disponível na sua barra de extensões.
+
+## 📈 Guia de Uso
+
+- Para abrir, clique no ícone da extensão na sua barra do navegador (recomendamos fixar o ícone utilizando o menu de 'Quebra-cabeça' do Chrome).
+- Na interface inicial, visualize o preço atual na extremidade superior da tela.
+- Posicione o mouse sobre o gráfico em Canvas para ativar o rastreador analítico e inspecionar a cotação exata nos dias passados.
+- Alterne entre as abas no menu inferior (7D, 15D, 1M, 3M) para alterar a amplitude temporal dos dados retornados pela API.
+
+## 📄 Licença e Contribuição
+
+Este projeto tem o código aberto. Sinta-se totalmente à vontade para clonar, realizar um *fork*, abrir *issues* com melhorias e sugestões ou contribuir diretamente através de *pull requests*.

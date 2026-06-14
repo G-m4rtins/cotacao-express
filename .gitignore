@@ -1,0 +1,46 @@
+# IDE e Editores de Texto
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.sublime-workspace
+*.sublime-project
+
+# Sistema Operacional (Windows / Mac)
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Arquivos de Log e Cache
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
+
+# Dependências (Caso venha a usar no futuro)
+node_modules/
+jspm_packages/
+
+# Empacotamento da Extensão (Arquivos gerados ao publicar)
+*.zip
+*.crx
+*.pem
+dolar-extension*.zip
+build/
+dist/
+
+# Variáveis de Ambiente
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local

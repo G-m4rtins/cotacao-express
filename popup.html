@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dólar Hoje</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="flag">🇺🇸</div>
+        <div>
+          <div class="currency-label">USD / BRL</div>
+          <div class="currency-sub">Dólar Americano</div>
+        </div>
+      </div>
+      <div class="live-area">
+        <span class="live-badge"><span class="live-dot" id="liveDot"></span>AO VIVO</span>
+        <span class="countdown-label" id="countdownLabel">Atualiza em 30s</span>
+      </div>
+      <div class="refresh-btn" id="refreshBtn" title="Atualizar">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M23 4v6h-6"/><path d="M1 20v-6h6"/>
+          <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+        </svg>
+      </div>
+    </header>
+
+    <!-- Main Rate -->
+    <section class="rate-section">
+      <div class="rate-loading" id="rateLoading">
+        <div class="spinner"></div>
+        <span>Carregando...</span>
+      </div>
+      <div class="rate-content" id="rateContent" style="display:none">
+        <div class="rate-main">
+          <span class="rate-prefix">R$</span>
+          <span class="rate-value" id="rateValue">—</span>
+        </div>
+        <div class="rate-meta">
+          <span class="rate-badge" id="rateBadge"></span>
+          <span class="rate-time" id="rateTime"></span>
+        </div>
+        <div class="rate-detail">
+          <div class="detail-item">
+            <span class="detail-label">Compra</span>
+            <span class="detail-val" id="rateBid">—</span>
+          </div>
+          <div class="detail-divider"></div>
+          <div class="detail-item">
+            <span class="detail-label">Venda</span>
+            <span class="detail-val" id="rateAsk">—</span>
+          </div>
+          <div class="detail-divider"></div>
+          <div class="detail-item">
+            <span class="detail-label">Variação</span>
+            <span class="detail-val" id="rateChange">—</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Period Tabs -->
+    <div class="tabs">
+      <button class="tab active" data-period="7">7D</button>
+      <button class="tab" data-period="15">15D</button>
+      <button class="tab" data-period="30">1M</button>
+      <button class="tab" data-period="90">3M</button>
+    </div>
+
+    <!-- Chart -->
+    <section class="chart-section">
+      <div class="chart-loading" id="chartLoading">
+        <div class="spinner small"></div>
+      </div>
+      <canvas id="rateChart" width="320" height="130" style="display:none"></canvas>
+      <div class="chart-tooltip" id="chartTooltip" style="display:none">
+        <div class="tooltip-date" id="ttDate"></div>
+        <div class="tooltip-price" id="ttPrice"></div>
+      </div>
+      <div class="chart-range" id="chartRange"></div>
+    </section>
+
+
+
+    <footer class="footer">Dados: AwesomeAPI · <span id="footerTime"></span></footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
